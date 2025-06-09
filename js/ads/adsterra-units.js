@@ -19,8 +19,8 @@ export function loadBannerAd(containerId) {
     // --- TEMPATKAN KODE ADSTERRA BANNER ANDA DI SINI ---
     // Contoh placeholder:
     container.innerHTML = `
-        <div id="container-${containerId}-ad"></div>
-        <script async data-cfasync="false" src="//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_BANNER_CODE_ID/invoke.js"></script>
+        <div id="container-${2c979ea6eea470e28aecac661089d1a9}-ad"></div>
+        <script async data-cfasync="false" src="//pl26583030.profitableratecpm.com/2c979ea6eea470e28aecac661089d1a9/invoke.js"></script>
     `;
     // Ganti "//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_BANNER_CODE_ID/invoke.js"
     // dengan URL script yang Adsterra berikan untuk unit banner Anda.
