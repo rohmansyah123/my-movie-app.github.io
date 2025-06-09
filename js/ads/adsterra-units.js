@@ -5,30 +5,29 @@
 // ====================================================================================
 
 /**
- * Fungsi untuk memuat unit iklan Banner (misalnya 728x90 atau 970x250).
+ * Fungsi untuk memuat unit iklan Banner (misalnya 728x90, 970x250, atau Responsive).
  * Tempatkan kode banner Adsterra Anda di dalam fungsi ini.
  * @param {string} containerId ID dari elemen HTML tempat iklan akan dimasukkan.
  */
 export function loadBannerAd(containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
-        console.error(`Container with ID ${containerId} not found for banner ad.`);
+        console.warn(`[Adsterra] Container with ID ${containerId} not found for banner ad.`);
         return;
     }
 
-    // --- CONTOH KODE ADSTERRA BANNER (GANTI DENGAN KODE ASLI ANDA) ---
-    // Anda bisa mendapatkan kode ini dari dashboard Adsterra saat membuat unit iklan.
-    // Biasanya dimulai dengan <script async data-cfasync="false" src="...">
-    // Atau mungkin berupa iframe, tergantung jenis unitnya.
-
-    // Contoh untuk unit Banner (ganti dengan kode Adsterra Anda)
+    // --- TEMPATKAN KODE ADSTERRA BANNER ANDA DI SINI ---
+    // Contoh placeholder:
     container.innerHTML = `
-        <div id="container-ID_UNIT_ADSTERRA_BANNER_ANDA"></div>
-        <script async data-cfasync="false" src="//pl22168345.topcreativeformat.com/ID_UNIT_ADSTERRA_BANNER_ANDA/invoke.js"></script>
+        <div id="container-${containerId}-ad"></div>
+        <script async data-cfasync="false" src="//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_BANNER_CODE_ID/invoke.js"></script>
     `;
-    // --- AKHIR CONTOH KODE ADSTERRA BANNER ---
+    // Ganti "//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_BANNER_CODE_ID/invoke.js"
+    // dengan URL script yang Adsterra berikan untuk unit banner Anda.
+    // Pastikan ID div container (misal: "container-ad-header-banner-ad") unik jika diperlukan.
+    // --- AKHIR KODE ADSTERRA BANNER ---
 
-    console.log(`Adsterra banner ad loaded into #${containerId}`);
+    console.log(`[Adsterra] Banner ad requested for #${containerId}`);
 }
 
 /**
@@ -37,35 +36,33 @@ export function loadBannerAd(containerId) {
  * Tempatkan kode Popunder Adsterra Anda di dalam fungsi ini.
  */
 export function loadPopunderAd() {
-    // --- CONTOH KODE ADSTERRA POPUNDER (GANTI DENGAN KODE ASLI ANDA) ---
-    // Biasanya kode Popunder lebih ringkas dan langsung dieksekusi.
-
-    // Contoh untuk unit Popunder
+    // --- TEMPATKAN KODE ADSTERRA POPUNDER ANDA DI SINI ---
+    // Contoh placeholder:
     const script = document.createElement('script');
     script.async = true;
     script.dataset.cfasync = 'false';
-    script.src = '//pl22168345.topcreativeformat.com/ID_UNIT_ADSTERRA_POPUNDER_ANDA/invoke.js';
+    script.src = '//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_POPUNDER_CODE_ID/invoke.js';
     document.head.appendChild(script);
-    // --- AKHIR CONTOH KODE ADSTERRA POPUNDER ---
+    // --- AKHIR KODE ADSTERRA POPUNDER ---
 
-    console.log('Adsterra Popunder ad loaded.');
+    console.log('[Adsterra] Popunder ad requested.');
 }
 
 /**
- * Fungsi untuk memuat unit iklan Social Bar (jika ingin menempatkannya secara dinamis).
- * Social Bar biasanya ditempatkan di dalam <body> atau <head> secara langsung.
- * Jika Anda ingin memuatnya secara dinamis, tempatkan kodenya di sini.
+ * Fungsi untuk memuat unit iklan Social Bar.
+ * Tempatkan kode Social Bar Adsterra Anda di dalam fungsi ini.
  */
 export function loadSocialBarAd() {
-    // --- CONTOH KODE ADSTERRA SOCIAL BAR (GANTI DENGAN KODE ASLI ANDA) ---
+    // --- TEMPATKAN KODE ADSTERRA SOCIAL BAR ANDA DI SINI ---
+    // Contoh placeholder:
     const script = document.createElement('script');
     script.async = true;
     script.dataset.cfasync = 'false';
-    script.src = '//pl22168345.topcreativeformat.com/ID_UNIT_ADSTERRA_SOCIAL_BAR_ANDA/invoke.js';
+    script.src = '//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_SOCIAL_BAR_CODE_ID/invoke.js';
     document.body.appendChild(script);
-    // --- AKHIR CONTOH KODE ADSTERRA SOCIAL BAR ---
+    // --- AKHIR KODE ADSTERRA SOCIAL BAR ---
 
-    console.log('Adsterra Social Bar ad loaded.');
+    console.log('[Adsterra] Social Bar ad requested.');
 }
 
 // Anda bisa menambahkan fungsi export lainnya untuk jenis unit iklan Adsterra yang berbeda
