@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Movie App - Lengkap</title>
+    <title>My Movie App - Iklan Adsterra</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+
+    </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="#">MyFilm</a></div>
-            <ul class="nav-links">
-                <li><a href="#" class="active" data-filter-genre="popular">Beranda</a></li>
-                <li><a href="#" data-filter-genre="top_rated">Rating Tertinggi</a></li>
-                <li><a href="#" data-filter-genre="upcoming">Mendatang</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Genre <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content" id="genreFilter">
-                        </div>
-                </li>
-            </ul>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Cari film...">
-                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </nav>
+        <div class="ad-container header-banner" id="ad-header-banner">
             </div>
-            <div class="menu-toggle" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
         <div class="hero-section" id="heroSection">
             <div class="loading-overlay" id="heroLoadingOverlay">
                 <div class="loading-spinner"></div>
@@ -37,6 +22,8 @@
     </header>
 
     <main class="container">
+        <div class="ad-container middle-banner" id="ad-middle-banner">
+            </div>
         <h2 id="sectionTitle">Film Populer</h2>
         <div id="loadingIndicator" class="loading-indicator">
             <div class="loading-spinner"></div>
@@ -56,23 +43,14 @@
     </main>
 
     <footer>
+        <div class="ad-container footer-banner" id="ad-footer-banner">
+            </div>
         <p>&copy; 2025 My Movie App. Data provided by <a href="https://www.themoviedb.org/" target="_blank">TMDb</a>.</p>
     </footer>
 
     <div id="movieDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modalBody" class="modal-body">
-                <div class="loading-overlay" id="modalLoadingOverlay">
-                    <div class="loading-spinner"></div>
-                </div>
-                <div class="modal-error-message" id="modalErrorMessage" style="display: none;">
-                    <p><i class="fas fa-exclamation-triangle"></i> Gagal memuat detail film.</p>
-                </div>
-            </div>
         </div>
-    </div>
 
     <script type="module" src="js/script.js"></script>
-</body>
+    </body>
 </html>
