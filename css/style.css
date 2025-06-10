@@ -529,7 +529,8 @@ footer a:hover {
 
 /* --- Link Alternatif dan Situs Resmi (Modal) --- */
 .modal-details .alternative-link,
-.modal-details .official-website-link {
+.modal-details .official-website-link,
+.modal-details .player-page-link {
     text-decoration: none;
     font-weight: bold;
     margin-bottom: 5px;
@@ -537,7 +538,7 @@ footer a:hover {
 }
 
 .modal-details .alternative-link {
-    color: #28a745; /* Warna hijau untuk link alternatif */
+    color: #28a745; /* Warna hijau untuk link Google Search */
 }
 
 .modal-details .alternative-link:hover {
@@ -552,6 +553,23 @@ footer a:hover {
 .modal-details .official-website-link:hover {
     text-decoration: underline;
     color: #0056b3;
+}
+
+.modal-details .player-page-link { /* Styling khusus untuk link pemutar */
+    color: #ff9900; /* Warna oranye, contoh */
+    background-color: rgba(255, 153, 0, 0.1); /* Latar belakang sedikit */
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #ff9900;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 10px; /* Jeda dari elemen di atasnya */
+}
+
+.modal-details .player-page-link:hover {
+    background-color: #ff9900;
+    color: #fff;
+    text-decoration: none;
 }
 
 
@@ -701,5 +719,4 @@ footer a:hover {
     .movie-card img {
         height: 180px;
     }
-        }
-    
+}
