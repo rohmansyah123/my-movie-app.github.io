@@ -1,6 +1,6 @@
 import { API_KEY, BASE_URL, IMAGE_BASE_URL, YOUTUBE_EMBED_URL } from '../api/config.js';
 import { loadBannerAd, loadPopunderAd, loadSocialBarAd } from './ads/adsterra-units.js';
-import { generateGoogleSearchLink } from './utils/alternative-links.js';
+import { generateGoogleSearchLink, generatePlayerPageLink } from './utils/alternative-links.js';
 
 // --- Elements ---
 const heroSection = document.getElementById('heroSection');
@@ -379,8 +379,8 @@ async function showMovieDetail(movieId) {
         }
 
         // --- Link Alternatif ---
-        let alternativeLinkHtml = generateGoogleSearchLink(movieData.title);
-
+        let googleSearchLinkHtml = generateGoogleSearchLink(movieData.title);
+        let playerPageLinkHtml = generatePlayerPageLink(); // Panggil fungsi baru
 
         modalBody.innerHTML = `
             <img src="${posterUrl}" alt="${movieData.title}" class="modal-poster">
@@ -392,7 +392,7 @@ async function showMovieDetail(movieId) {
                 <p><strong>Durasi:</strong> ${movieData.runtime ? `${movieData.runtime} menit` : 'N/A'}</p>
                 <p><strong>Genre:</strong> <span class="genre-list">${genres || 'N/A'}</span></p>
 
-                ${alternativeLinkHtml} ${movieData.homepage ? `<p><a href="${movieData.homepage}" target="_blank" class="official-website-link">Kunjungi Situs Resmi</a></p>` : ''}
+                ${playerPageLinkHtml} ${googleSearchLinkHtml} ${movieData.homepage ? `<p><a href="${movieData.homepage}" target="_blank" class="official-website-link">Kunjungi Situs Resmi</a></p>` : ''}
             </div>
             ${trailerEmbed}
         `;
@@ -448,3 +448,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPopunderAd();
     // loadSocialBarAd(); // Aktifkan jika ingin menggunakan Social Bar
 });
+                
