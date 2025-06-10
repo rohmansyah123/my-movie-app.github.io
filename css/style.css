@@ -685,7 +685,7 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    .logo a {
+    .logo {
         font-size: 1.5em;
     }
     .search-container {
@@ -701,5 +701,5 @@ footer a:hover {
     .movie-card img {
         height: 180px;
     }
-    }
+        }
     
