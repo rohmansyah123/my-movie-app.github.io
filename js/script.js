@@ -448,23 +448,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPopunderAd();
     // loadSocialBarAd(); // Aktifkan jika ingin menggunakan Social Bar
 });
-            
-// ... kode yang sudah ada di bagian atas ...
-
-// --- Initial Load ---
-document.addEventListener('DOMContentLoaded', () => {
-    displayHeroMovie();
-    populateGenres();
-    fetchAndDisplayMovies(1, '', 'popular');
-
-    document.querySelector('.nav-link[data-filter-type="popular"]').classList.add('active');
-
-    // --- Panggil Fungsi Iklan Adsterra saat halaman dimuat ---
-    // Memanggil loadBannerAd untuk setiap ID wadah yang Anda tentukan di index.html
-    loadBannerAd('ad-header-banner');   // Untuk banner di header
-    loadBannerAd('ad-middle-banner');  // Untuk banner di antara hero dan daftar film
-    loadBannerAd('ad-footer-banner');   // Untuk banner di atas footer
-
-    loadPopunderAd();
-    // loadSocialBarAd(); // Aktifkan jika ingin menggunakan Social Bar
-});
