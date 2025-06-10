@@ -23,5 +23,5 @@ export function generatePlayerPageLink() {
     // misalnya: `https://rohmansyah123.github.io/movie-player.github.io/?q=${encodedTitle}`
     // jika pemutar Anda punya pencarian otomatis dari URL parameter.
     const playerPageUrl = 'https://rohmansyah123.github.io/movie-player.github.io/';
-    return `<p><a href="${playerPageUrl}" target="_blank" class="player-page-link">Buka di Pemutar</a></p>`;
+    return `<p><a href="${playerPageUrl}" target="_blank" class="player-page-link">Tonton Movie Sekarang</a></p>`;
 }
