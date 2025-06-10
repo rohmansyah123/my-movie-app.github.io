@@ -5,6 +5,6 @@
 const API_KEY = '6b2dec73b6697866a50cdaef60ccffcb'; // GANTI INI DENGAN API KEY TMDb V3 ANDA!
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
-const YOUTUBE_EMBED_URL = 'https://www.youtube.com/embed/'; // URL embed YouTube yang benar
+const YOUTUBE_EMBED_URL = 'https://www.youtube.com/embed/'; // Perbarui URL ini
 
 export { API_KEY, BASE_URL, IMAGE_BASE_URL, YOUTUBE_EMBED_URL };
