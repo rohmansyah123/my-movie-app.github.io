@@ -1,5 +1,6 @@
 import { API_KEY, BASE_URL, IMAGE_BASE_URL, YOUTUBE_EMBED_URL } from '../api/config.js';
 import { loadBannerAd, loadPopunderAd, loadSocialBarAd } from './ads/adsterra-units.js';
+import { generateGoogleSearchLink } from './utils/alternative-links.js';
 
 // --- Elements ---
 const heroSection = document.getElementById('heroSection');
@@ -296,12 +297,11 @@ async function populateGenres() {
 
             a.addEventListener('click', (e) => {
                 e.preventDefault();
-                currentSearchQuery = ''; // Hapus pencarian
-                searchInput.value = ''; // Hapus input pencarian
+                currentSearchQuery = '';
+                searchInput.value = '';
                 currentFilterType = 'genre';
                 currentGenreId = genre.id;
 
-                // Nonaktifkan semua link navigasi umum dan aktifkan link dropdown Genre
                 navLinks.forEach(link => link.classList.remove('active'));
                 document.querySelector('.dropbtn').classList.add('active'); // Aktifkan tombol dropdown
 
@@ -323,16 +323,15 @@ navLinks.forEach(link => {
     if (link.dataset.filterType) { // Hanya untuk link dengan data-filter-type
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            // Hapus kelas 'active' dari semua dan tambahkan ke yang diklik
             navLinks.forEach(navLink => navLink.classList.remove('active'));
             e.target.classList.add('active');
 
-            currentSearchQuery = ''; // Hapus pencarian
-            searchInput.value = ''; // Hapus input pencarian
-            currentGenreId = null; // Hapus filter genre
+            currentSearchQuery = '';
+            searchInput.value = '';
+            currentGenreId = null;
             currentFilterType = e.target.dataset.filterType;
             fetchAndDisplayMovies(1, '', currentFilterType);
-            navLinksContainer.classList.remove('active'); // Tutup menu mobile jika terbuka
+            navLinksContainer.classList.remove('active');
         });
     }
 });
@@ -340,17 +339,16 @@ navLinks.forEach(link => {
 
 // --- Movie Detail Modal ---
 async function showMovieDetail(movieId) {
-    modalBody.innerHTML = ''; // Bersihkan detail sebelumnya
-    modalLoadingOverlay.style.display = 'flex'; // Tampilkan spinner modal
-    modalErrorMessage.style.display = 'none'; // Sembunyikan error sebelumnya
+    modalBody.innerHTML = '';
+    modalLoadingOverlay.style.display = 'flex';
+    modalErrorMessage.style.display = 'none';
 
-    // Ambil detail film dan video secara bersamaan
     const [movieData, videoData] = await Promise.all([
         fetchApi(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`, null, modalErrorMessage),
         fetchApi(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`, null, modalErrorMessage)
     ]);
 
-    modalLoadingOverlay.style.display = 'none'; // Sembunyikan spinner modal
+    modalLoadingOverlay.style.display = 'none';
 
     if (movieData) {
         const posterUrl = getImageUrl(movieData.poster_path, 'w500');
@@ -358,7 +356,6 @@ async function showMovieDetail(movieId) {
 
         let trailerEmbed = '';
         if (videoData && videoData.results.length > 0) {
-            // Cari trailer YouTube yang paling relevan (Trailer atau Teaser)
             const trailer = videoData.results.find(
                 vid => vid.site === 'YouTube' && (vid.type === 'Trailer' || vid.type === 'Teaser')
             );
@@ -367,8 +364,8 @@ async function showMovieDetail(movieId) {
                     <div class="trailer-section">
                         <h3>Trailer</h3>
                         <div class="video-container">
-                            <iframe src="${YOUTUBE_EMBED_URL}${trailer.key}" 
-                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            <iframe src="${YOUTUBE_EMBED_URL}${trailer.key}"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                             </iframe>
                         </div>
@@ -381,6 +378,10 @@ async function showMovieDetail(movieId) {
              trailerEmbed = `<div class="trailer-section"><p style="color:#aaa;">Tidak ada video yang tersedia.</p></div>`;
         }
 
+        // --- Link Alternatif ---
+        let alternativeLinkHtml = generateGoogleSearchLink(movieData.title);
+
+
         modalBody.innerHTML = `
             <img src="${posterUrl}" alt="${movieData.title}" class="modal-poster">
             <div class="modal-details">
@@ -390,26 +391,26 @@ async function showMovieDetail(movieId) {
                 <p><strong>Rilis:</strong> ${movieData.release_date || 'N/A'}</p>
                 <p><strong>Durasi:</strong> ${movieData.runtime ? `${movieData.runtime} menit` : 'N/A'}</p>
                 <p><strong>Genre:</strong> <span class="genre-list">${genres || 'N/A'}</span></p>
-                ${movieData.homepage ? `<p><a href="${movieData.homepage}" target="_blank" style="color:#007bff; text-decoration:none;">Kunjungi Situs Resmi</a></p>` : ''}
+
+                ${alternativeLinkHtml} ${movieData.homepage ? `<p><a href="${movieData.homepage}" target="_blank" class="official-website-link">Kunjungi Situs Resmi</a></p>` : ''}
             </div>
             ${trailerEmbed}
         `;
         movieDetailModal.style.display = 'block';
     }
-    // Pesan error sudah ditangani oleh fetchApi
 }
 
 // Close modal when close button is clicked
 closeButton.addEventListener('click', () => {
     movieDetailModal.style.display = 'none';
-    modalBody.innerHTML = ''; // Bersihkan konten saat menutup
+    modalBody.innerHTML = '';
 });
 
 // Close modal when clicking outside of modal content
 window.addEventListener('click', (event) => {
     if (event.target === movieDetailModal) {
         movieDetailModal.style.display = 'none';
-        modalBody.innerHTML = ''; // Bersihkan konten saat menutup
+        modalBody.innerHTML = '';
     }
 });
 
@@ -417,7 +418,7 @@ window.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && movieDetailModal.style.display === 'block') {
         movieDetailModal.style.display = 'none';
-        modalBody.innerHTML = ''; // Bersihkan konten saat menutup
+        modalBody.innerHTML = '';
     }
 });
 
@@ -434,10 +435,9 @@ heroSection.addEventListener('click', (e) => {
 // --- Initial Load ---
 document.addEventListener('DOMContentLoaded', () => {
     displayHeroMovie();
-    populateGenres(); // Muat genre terlebih dahulu
-    fetchAndDisplayMovies(1, '', 'popular'); // Muat film populer secara default
+    populateGenres();
+    fetchAndDisplayMovies(1, '', 'popular');
 
-    // Set 'Beranda' sebagai aktif secara default
     document.querySelector('.nav-link[data-filter-type="popular"]').classList.add('active');
 
     // --- Panggil Fungsi Iklan Adsterra saat halaman dimuat ---
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBannerAd('ad-middle-banner');
     loadBannerAd('ad-footer-banner');
 
-    // Panggil Popunder dan Social Bar jika Anda ingin menggunakannya
     loadPopunderAd();
     // loadSocialBarAd(); // Aktifkan jika ingin menggunakan Social Bar
 });
+            
