@@ -19,12 +19,11 @@ export function loadBannerAd(containerId) {
     // --- TEMPATKAN KODE ADSTERRA BANNER ANDA DI SINI ---
     // Contoh placeholder:
     container.innerHTML = `
-        <div id="container-2c979ea6eea470e28aecac661089d1a9-ad"></div>
-        <script async data-cfasync="false" src="//pl26583030.profitableratecpm.com/2c979ea6eea470e28aecac661089d1a9/invoke.js"></script>
+        <div id="container-${containerId}-ad"></div>
+        <script async data-cfasync="false" src="//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_BANNER_ANDA/invoke.js"></script>
     `;
-    // Ganti "//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_BANNER_CODE_ID/invoke.js"
+    // Ganti "//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_BANNER_ANDA/invoke.js"
     // dengan URL script yang Adsterra berikan untuk unit banner Anda.
-    // Pastikan ID div container (misal: "container-ad-header-banner-ad") unik jika diperlukan.
     // --- AKHIR KODE ADSTERRA BANNER ---
 
     console.log(`[Adsterra] Banner ad requested for #${containerId}`);
@@ -41,7 +40,7 @@ export function loadPopunderAd() {
     const script = document.createElement('script');
     script.async = true;
     script.dataset.cfasync = 'false';
-    script.src = '//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_POPUNDER_CODE_ID/invoke.js';
+    script.src = '//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_POPUNDER_ANDA/invoke.js';
     document.head.appendChild(script);
     // --- AKHIR KODE ADSTERRA POPUNDER ---
 
@@ -58,12 +57,9 @@ export function loadSocialBarAd() {
     const script = document.createElement('script');
     script.async = true;
     script.dataset.cfasync = 'false';
-    script.src = '//pl22168345.topcreativeformat.com/YOUR_ACTUAL_ADSTERRA_SOCIAL_BAR_CODE_ID/invoke.js';
+    script.src = '//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_SOCIAL_BAR_ANDA/invoke.js';
     document.body.appendChild(script);
     // --- AKHIR KODE ADSTERRA SOCIAL BAR ---
 
     console.log('[Adsterra] Social Bar ad requested.');
 }
-
-// Anda bisa menambahkan fungsi export lainnya untuk jenis unit iklan Adsterra yang berbeda
-// seperti Native Banner, Direct Link, dll., sesuai kebutuhan Anda.
