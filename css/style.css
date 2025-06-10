@@ -464,7 +464,7 @@ footer a:hover {
     background-color: rgba(26, 26, 26, 0.7);
     border-radius: 8px;
     color: #f0f0f0;
-    display: none; /* Hidden by default, controlled by JS */
+    display: none;
 }
 
 .loading-indicator p {
@@ -495,7 +495,7 @@ footer a:hover {
     border-radius: 8px;
     text-align: center;
     margin-top: 20px;
-    display: none; /* Hidden by default, controlled by JS */
+    display: none;
 }
 
 .error-message p, .modal-error-message p {
@@ -526,6 +526,34 @@ footer a:hover {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+/* --- Link Alternatif dan Situs Resmi (Modal) --- */
+.modal-details .alternative-link,
+.modal-details .official-website-link {
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* Memastikan setiap link berada di baris baru */
+}
+
+.modal-details .alternative-link {
+    color: #28a745; /* Warna hijau untuk link alternatif */
+}
+
+.modal-details .alternative-link:hover {
+    text-decoration: underline;
+    color: #32cd32;
+}
+
+.modal-details .official-website-link {
+    color: #007bff; /* Warna biru untuk link situs resmi */
+}
+
+.modal-details .official-website-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
 
 /* --- Responsiveness --- */
 @media (max-width: 768px) {
@@ -673,4 +701,5 @@ footer a:hover {
     .movie-card img {
         height: 180px;
     }
-}
+    }
+    
