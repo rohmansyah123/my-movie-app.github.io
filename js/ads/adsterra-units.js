@@ -1,6 +1,10 @@
+// ====================================================================================
+// TEMPATKAN KODE UNIT IKLAN ADSTERRA ANDA DI SINI
+// Ganti contoh placeholder di bawah dengan kode Adsterra Anda yang sebenarnya.
+// ====================================================================================
+
 /**
  * Fungsi untuk memuat unit iklan Banner (misalnya 728x90, 970x250, atau Responsive).
- * Tempatkan kode banner Adsterra Anda di dalam fungsi ini.
  * @param {string} containerId ID dari elemen HTML tempat iklan akan dimasukkan.
  */
 export function loadBannerAd(containerId) {
@@ -11,7 +15,7 @@ export function loadBannerAd(containerId) {
     }
 
     // --- TEMPATKAN KODE ADSTERRA BANNER ANDA DI SINI ---
-    // Kode Native Banner Adsterra Anda:
+    // Gunakan kode Native Banner Adsterra yang Anda berikan:
     container.innerHTML = `
         <div id="container-2c979ea6eea470e28aecac661089d1a9"></div>
         <script async data-cfasync="false" src="//pl26583030.profitableratecpm.com/2c979ea6eea470e28aecac661089d1a9/invoke.js"></script>
@@ -24,11 +28,10 @@ export function loadBannerAd(containerId) {
 /**
  * Fungsi untuk memuat unit iklan Popunder.
  * Popunder biasanya tidak memerlukan container ID karena membuka tab baru.
- * Tempatkan kode Popunder Adsterra Anda di dalam fungsi ini.
  */
 export function loadPopunderAd() {
     // --- TEMPATKAN KODE ADSTERRA POPUNDER ANDA DI SINI ---
-    // Contoh placeholder:
+    // Contoh placeholder. Ganti dengan kode Popunder asli Anda.
     // const script = document.createElement('script');
     // script.async = true;
     // script.dataset.cfasync = 'false';
@@ -41,11 +44,10 @@ export function loadPopunderAd() {
 
 /**
  * Fungsi untuk memuat unit iklan Social Bar.
- * Tempatkan kode Social Bar Adsterra Anda di dalam fungsi ini.
  */
 export function loadSocialBarAd() {
     // --- TEMPATKAN KODE ADSTERRA SOCIAL BAR ANDA DI SINI ---
-    // Contoh placeholder:
+    // Contoh placeholder. Ganti dengan kode Social Bar asli Anda.
     // const script = document.createElement('script');
     // script.async = true;
     // script.dataset.cfasync = 'false';
