@@ -19,14 +19,14 @@ export function loadBannerAd(containerId) {
     // --- TEMPATKAN KODE ADSTERRA BANNER ANDA DI SINI ---
     // Contoh placeholder:
     container.innerHTML = `
-        <div id="container-${2c979ea6eea470e28aecac661089d1a9}-ad"></div>
-        <script async data-cfasync="false" src="//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_BANNER_ANDA/invoke.js"></script>
+        <div id="container-2c979ea6eea470e28aecac661089d1a9"></div>
+        <script async data-cfasync="false" src="//pl26583030.profitableratecpm.com/2c979ea6eea470e28aecac661089d1a9/invoke.js"></script>
     `;
     // Ganti "//pl22168345.topcreativeformat.com/GANTI_DENGAN_ID_UNIT_ADSTERRA_BANNER_ANDA/invoke.js"
     // dengan URL script yang Adsterra berikan untuk unit banner Anda.
     // --- AKHIR KODE ADSTERRA BANNER ---
 
-    console.log(`[Adsterra] Banner ad requested for #${2c979ea6eea470e28aecac661089d1a9}`);
+    console.log(`[Adsterra] Banner ad requested for #2c979ea6eea470e28aecac661089d1a9}`);
 }
 
 /**
